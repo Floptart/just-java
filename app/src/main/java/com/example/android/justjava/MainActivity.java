@@ -24,7 +24,8 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        displayPrice(quantity * 5);
+        String priceMessage = "Total: " + NumberFormat.getCurrencyInstance().format(quantity * 5) + "\nThank you!";
+        displayMessage(priceMessage);
     }
 
     /**
@@ -37,11 +38,12 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * This method displays the given price on the screen.
-     */
+
     private void displayPrice(int number) {
         TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
         priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
-    }
+     }
+     */
 
     public void increment(View view) {
         quantity = quantity + 1;
@@ -55,5 +57,13 @@ public class MainActivity extends AppCompatActivity {
             quantity = quantity - 1;
             display(quantity);
         }
+    }
+
+    /**
+     * This method displays the given text on the screen.
+     */
+    private void displayMessage(String message) {
+        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
+        priceTextView.setText(message);
     }
 }
